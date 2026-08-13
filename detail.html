@@ -11,6 +11,7 @@
     --accent:#1a56db; --accent-soft:#e7eefc; --accent-fg:#ffffff;
     --ok:#1a7f52; --warn:#97620a; --bad:#b3261e;
     --ok-bg:#e6f4ec; --warn-bg:#fdf3e2; --bad-bg:#fdecea;
+    --ok-line:#b7e0c8;
     --r:9px;
   }
   @media (prefers-color-scheme: dark) {
@@ -20,6 +21,7 @@
       --accent:#6aa4ff; --accent-soft:#1b2740; --accent-fg:#0b1220;
       --ok:#63cd97; --warn:#e0ab5a; --bad:#f2837b;
       --ok-bg:#16281f; --warn-bg:#2e2617; --bad-bg:#2e1d1c;
+      --ok-line:#2c5741;
     }
   }
   * { box-sizing:border-box; }
@@ -102,6 +104,20 @@
 
   code { background:var(--bg-inset); padding:1px 5px; border-radius:4px;
          font-family:"Cascadia Mono",Consolas,monospace; font-size:12.5px; }
+
+  /* 문의 안내 — 제목 바로 아래. 눈에 띄되 본문을 밀어내지 않을 만큼만 */
+  .contact { display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+             background:var(--ok-bg); border:1px solid var(--ok-line);
+             border-radius:var(--r); padding:13px 17px; margin:0 0 22px; }
+  .contact .txt { flex:1 1 240px; min-width:0; }
+  .contact b { display:block; color:var(--ok); }
+  .contact span { font-size:13.5px; color:var(--fg-muted); }
+  .contact a { display:inline-flex; align-items:center; gap:7px; flex:0 0 auto;
+               background:#5865F2; color:#fff; text-decoration:none; font-weight:600;
+               font-size:13.5px; padding:8px 14px; border-radius:8px; }
+  .contact a:hover { filter:brightness(1.08); }
+  .contact a svg { width:18px; height:18px; fill:currentColor; flex:0 0 auto; }
+
   :focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
 </style>
 </head>
@@ -124,6 +140,17 @@
   </div>
   <a href="index.html">← 기본 가이드</a>
 </header>
+
+<div class="contact">
+  <div class="txt">
+    <b>스트리머분들의 서비스에 관한 문의나 의견을 환영합니다.</b>
+    <span>디스코드로 편하게 연락 남겨주세요.</span>
+  </div>
+  <a href="https://discord.com/users/cagea1" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.198.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+    디스코드로 문의하기
+  </a>
+</div>
 
 <p class="lede">
   동작 원리와 세부 규칙을 담은 문서입니다.
@@ -235,7 +262,7 @@
     <div>
       <h3>SOOP에 스트리머 계정으로 로그인한 뒤 연결을 신청합니다</h3>
       <p>
-        확장 아이콘을 누르고 서버 주소를 입력해 로그인한 다음,
+        확장 아이콘을 누르고 로그인한 다음,
         <strong>이 계정으로 연결 신청</strong>을 누릅니다.
         확장이 <strong>현재 SOOP에 로그인된 계정</strong>의 아이디로 신청하므로 오타가 날 일이 없습니다.
       </p>
@@ -271,14 +298,15 @@
             <td>채팅 참여자 목록에 머무는 동안 일정 시간마다. 기본 10분마다 5달란트입니다.</td></tr>
         <tr><td><strong>채팅</strong></td><td class="auto"><span class="badge ok">자동</span></td>
             <td>채팅 한 건마다. 도배로 쌓지 못하도록 분당 인정 건수와 하루 상한이 걸려 있습니다.</td></tr>
-        <tr><td><strong>일별 랭킹</strong></td><td class="auto"><span class="badge ok">자동</span></td>
-            <td>전날 참여시간·채팅 상위 100명에게 순위에 따라 가산점을 줍니다.</td></tr>
+        <tr><td><strong>별별랭킹 시청시간 / 채팅 순위</strong></td>
+            <td class="auto"><span class="badge ok">자동</span></td>
+            <td>전날 순위 상위 100명에게 순위에 따라 가산점을 줍니다.</td></tr>
         <tr><td><strong>후원</strong></td><td class="auto"><span class="badge ok">자동</span></td>
             <td>별풍선과 애드벌룬을 개수에 비례해 환산합니다. 환산율을 따로 정할 수 있습니다.</td></tr>
         <tr><td><strong>팬클럽 가입</strong></td><td class="auto"><span class="badge ok">자동</span></td>
             <td>가입이 확인되면 최초 한 번 지급합니다.</td></tr>
-        <tr><td><strong>구독</strong></td><td class="auto"><span class="badge warn">준비 중</span></td>
-            <td>아래 안내를 참고하세요.</td></tr>
+        <tr><td><strong>구독</strong></td><td class="auto"><span class="badge ok">자동</span></td>
+            <td>기본 달란트에 구독 개월 수만큼 더해서 지급합니다. 개월 수 상한을 정할 수 있습니다.</td></tr>
         <tr><td><strong>게시글 · 댓글</strong></td><td class="auto"><span class="badge warn">수동</span></td>
             <td>방송국 게시판에서 버튼을 눌러 직접 지급합니다.</td></tr>
         <tr><td><strong>직접 지급</strong></td><td class="auto"><span class="badge warn">수동</span></td>
@@ -287,12 +315,17 @@
     </table>
   </div>
 
-  <div class="callout warn">
-    <strong>구독 달란트는 아직 지급되지 않습니다.</strong>
-    SOOP이 구독 알림을 보내는 형식을 아직 확정하지 못했습니다.
-    다만 서버는 <strong>모든 채팅 신호를 원본 그대로 보관</strong>하고 있으므로,
-    형식이 확인되면 <strong>그동안의 구독까지 소급해서 지급</strong>됩니다. 지금 놓치는 달란트는 없습니다.
-  </div>
+  <h3>채팅 연동 켜고 끄기</h3>
+  <p>
+    <strong>대시보드</strong> 탭 맨 위 <strong>연결 상태</strong> 카드에서 채팅 연동을 끌 수 있습니다.
+    끄면 서버가 방송 채팅에서 빠져나오고, <strong>방송 시청·채팅·후원·팬클럽 달란트가 멈춥니다.</strong>
+  </p>
+  <ul>
+    <li>일별 랭킹과 게시판 직접 지급은 확장이 담당하므로 <strong>그대로 동작합니다.</strong></li>
+    <li>이미 쌓인 달란트는 <strong>사라지지 않습니다.</strong> 달란트 시장도 그대로 열립니다.</li>
+    <li>설정은 서버에 저장되어 <strong>서버를 다시 켜도 꺼진 채로 유지됩니다.</strong></li>
+    <li>다시 켜면 방송 중일 때 몇 초 안에 붙습니다. 끈 동안의 활동은 <strong>메워지지 않습니다.</strong></li>
+  </ul>
 
   <h3>내역 확인</h3>
   <p>
@@ -529,6 +562,18 @@
     <summary>채팅 달란트는 쌓이는데 랭킹만 안 들어옵니다</summary>
     <p>채팅은 서버가, 랭킹은 확장이 담당합니다.
        <strong>확장 쪽만 문제가 있다</strong>는 뜻이므로 SOOP 로그인과 서버 주소를 확인하세요.</p>
+  </details>
+  <details>
+    <summary>달란트가 전혀 쌓이지 않습니다</summary>
+    <p><strong>대시보드</strong> 탭 맨 위 <strong>연결 상태</strong> 카드를 먼저 보세요.
+       어디가 끊겼는지 한 줄로 나옵니다. 확장 팝업에서도 같은 내용을 볼 수 있습니다.</p>
+    <ul>
+      <li><strong>채팅 연동이 꺼짐</strong> — 직접 끈 상태입니다. 옆의 <strong>켜기</strong>를 누르세요.</li>
+      <li><strong>방송 대기</strong> — 방송이 꺼져 있습니다. 고장이 아닙니다.</li>
+      <li><strong>재접속 중</strong> — 연결이 끊겨 다시 붙는 중입니다. 보통 몇 초면 돌아옵니다.
+          계속 이 상태라면 카드 아래의 <strong>마지막 오류</strong> 문구를 확인하세요.</li>
+      <li><strong>서버 응답 없음</strong> — 서버나 데이터베이스가 꺼져 있습니다.</li>
+    </ul>
   </details>
   <details>
     <summary>게시판에 버튼이 보이지 않습니다</summary>

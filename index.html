@@ -11,6 +11,7 @@
     --accent:#1a56db; --accent-soft:#e7eefc; --accent-fg:#ffffff;
     --ok:#1a7f52; --warn:#97620a; --bad:#b3261e;
     --ok-bg:#e6f4ec; --warn-bg:#fdf3e2; --bad-bg:#fdecea;
+    --ok-line:#b7e0c8;
     --r:10px;
   }
   @media (prefers-color-scheme: dark) {
@@ -20,6 +21,7 @@
       --accent:#6aa4ff; --accent-soft:#1b2740; --accent-fg:#0b1220;
       --ok:#63cd97; --warn:#e0ab5a; --bad:#f2837b;
       --ok-bg:#16281f; --warn-bg:#2e2617; --bad-bg:#2e1d1c;
+      --ok-line:#2c5741;
     }
   }
   * { box-sizing:border-box; }
@@ -101,7 +103,6 @@
          font-size:12px; font-weight:600; white-space:nowrap; }
   .tag.auto { background:var(--ok-bg);   color:var(--ok); }
   .tag.hand { background:var(--warn-bg); color:var(--warn); }
-  .tag.soon { background:var(--bg-inset);color:var(--fg-muted); }
 
   details { border:1px solid var(--line); border-radius:var(--r);
             padding:13px 16px; margin:10px 0; background:var(--bg-soft); }
@@ -113,6 +114,19 @@
          padding:13px 17px; border-radius:0 var(--r) var(--r) 0; margin:18px 0; }
   .tip.warn { border-left-color:var(--warn); background:var(--warn-bg); color:var(--warn); }
   .tip b { display:block; margin-bottom:3px; }
+
+  /* 문의 안내 — 제목 바로 아래. 눈에 띄되 본문을 밀어내지 않을 만큼만 */
+  .contact { display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+             background:var(--ok-bg); border:1px solid var(--ok-line);
+             border-radius:var(--r); padding:14px 18px; margin:0 0 34px; }
+  .contact .txt { flex:1 1 240px; min-width:0; }
+  .contact b { display:block; color:var(--ok); }
+  .contact span { font-size:14px; color:var(--fg-muted); }
+  .contact a { display:inline-flex; align-items:center; gap:7px; flex:0 0 auto;
+               background:#5865F2; color:#fff; text-decoration:none; font-weight:600;
+               font-size:14px; padding:9px 15px; border-radius:8px; }
+  .contact a:hover { filter:brightness(1.08); }
+  .contact a svg { width:19px; height:19px; fill:currentColor; flex:0 0 auto; }
 
   .checklist { list-style:none; margin:0; padding:0; }
   .checklist li { position:relative; padding:6px 0 6px 28px; }
@@ -151,6 +165,17 @@
 <div class="hero">
   <h2>시청자에게 달란트를 주고,<br>달란트로 보상을 받아 가게 하세요.</h2>
   <p>설정은 5분이면 끝나고, 그다음부터는 알아서 쌓입니다.</p>
+</div>
+
+<div class="contact">
+  <div class="txt">
+    <b>스트리머분들의 서비스에 관한 문의나 의견을 환영합니다.</b>
+    <span>디스코드로 편하게 연락 남겨주세요.</span>
+  </div>
+  <a href="https://discord.com/users/cagea1" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.198.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+    디스코드로 문의하기
+  </a>
 </div>
 
 <nav class="toc">
@@ -212,7 +237,6 @@
 
   <p><strong>먼저 준비할 것</strong></p>
   <ul class="checklist">
-    <li>운영자에게 받은 <strong>주소</strong> (예: points.example.com)</li>
     <li>크롬 브라우저</li>
     <li>SOOP에 <strong>방송용 계정</strong>으로 로그인된 상태</li>
   </ul>
@@ -249,7 +273,7 @@
     <div>
       <h3>내 방송국을 연결 신청합니다</h3>
       <p>
-        크롬 오른쪽 위 <strong>SoopTalent 아이콘</strong>을 누르고, 주소를 넣어 로그인한 다음
+        크롬 오른쪽 위 <strong>SoopTalent 아이콘</strong>을 누르고 로그인한 다음
         <strong>이 계정으로 연결 신청</strong>을 누릅니다.
       </p>
       <p>
@@ -290,15 +314,15 @@
             <td>10분마다 5달란트 (기본값)</td></tr>
         <tr><td><strong>채팅을 칩니다</strong></td><td class="auto"><span class="tag auto">자동</span></td>
             <td>한 줄에 2달란트. 도배해도 더 받지 못하게 막혀 있습니다</td></tr>
-        <tr><td><strong>어제 많이 봤거나 많이 떠들었습니다</strong></td>
+        <tr><td><strong>별별랭킹 시청시간 / 채팅 순위</strong></td>
             <td class="auto"><span class="tag auto">자동</span></td>
-            <td>상위 100명에게 순위대로 보너스</td></tr>
+            <td>전날 상위 100명에게 순위대로 보너스</td></tr>
         <tr><td><strong>별풍선·애드벌룬을 쏩니다</strong></td><td class="auto"><span class="tag auto">자동</span></td>
             <td>개수에 비례해서</td></tr>
         <tr><td><strong>팬클럽에 가입합니다</strong></td><td class="auto"><span class="tag auto">자동</span></td>
             <td>처음 한 번 500달란트</td></tr>
-        <tr><td><strong>구독합니다</strong></td><td class="auto"><span class="tag soon">준비 중</span></td>
-            <td>아래 설명을 봐 주세요</td></tr>
+        <tr><td><strong>구독합니다</strong></td><td class="auto"><span class="tag auto">자동</span></td>
+            <td>기본 달란트에 구독 개월 수만큼 더해서</td></tr>
         <tr><td><strong>좋은 글이나 댓글을 남깁니다</strong></td><td class="auto"><span class="tag hand">직접</span></td>
             <td>스트리머가 버튼을 눌러 줍니다</td></tr>
       </tbody>
@@ -306,9 +330,10 @@
   </div>
 
   <div class="tip">
-    <b>구독 달란트는 아직 지급되지 않습니다.</b>
-    지금은 구독 알림을 알아보지 못하지만, 기록은 빠짐없이 모아 두고 있습니다.
-    준비가 끝나면 <strong>그동안의 구독까지 한꺼번에 지급</strong>됩니다. 놓치는 달란트는 없습니다.
+    <b>잠시 멈추고 싶다면</b>
+    대시보드 <strong>연결 상태</strong> 카드에서 <strong>채팅 연동</strong>을 껐다 켤 수 있습니다.
+    끄면 방송 채팅에서 빠져나와 시청·채팅·후원 달란트가 멈추고, 켜면 곧바로 다시 붙습니다.
+    이미 쌓인 달란트는 그대로 남습니다.
   </div>
 
   <h3>얼마나 줄지 바꾸고 싶다면</h3>
@@ -332,13 +357,13 @@
   <p class="sub">방송국 게시판에서 버튼 한 번이면 됩니다.</p>
 
   <p>
-    설치가 끝나면 내 방송국 게시글의 <strong>개추 버튼 옆</strong>과
+    설치가 끝나면 내 방송국 게시글의 <strong>추천 버튼 옆</strong>과
     댓글의 <strong>답글 옆</strong>에 버튼이 생깁니다. 누르면 그 사람에게 달란트가 갑니다.
   </p>
 
   <figure>
     <svg viewBox="0 0 700 190" role="img" aria-labelledby="fg1">
-      <title id="fg1">개추 버튼 옆의 달란트 주기 버튼, 지급 후에는 쪽지 버튼이 함께 나타난다</title>
+      <title id="fg1">추천 버튼 옆의 달란트 주기 버튼, 지급 후에는 쪽지 버튼이 함께 나타난다</title>
       <rect class="box" x="20" y="18" width="660" height="66" rx="8"/>
       <text class="sub" x="48" y="56">👍 564</text>
       <rect class="btn" x="112" y="36" width="96" height="28" rx="14"/>
